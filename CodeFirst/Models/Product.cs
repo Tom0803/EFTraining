@@ -12,5 +12,7 @@ namespace CodeFirst.Models
         public Round Round { get; set; }
 
         public List<Part> Parts{ get; set; }
+
+        public override string ToString() => $"Product\nId:[{Id}] - Start:[{Start}] - Round: [{Round?.Id}]";
     }
 }

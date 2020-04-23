@@ -10,6 +10,7 @@ namespace AppConsole
         static Program()
         {
             _map.Add("seed", new SeedUseCase());
+            _map.Add("query", new QueryBasicUseCase());
         }
 
         static void Main(string[] args)

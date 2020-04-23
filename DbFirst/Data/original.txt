@@ -1,0 +1,46 @@
+Entities für die Applikation in Pseudo SQL
+TableName(
+    ColumnName datatype CONSTRAINT
+);
+Products(
+    Id int PK,
+    Start timestamp,
+    End timestamp Nullable,
+    RoundId int FK (Rounds)
+)
+
+Parts(
+    Id int PK,
+    ProductId int FK(Products)
+    PartdefinitionId int FK(PartDefinitions)
+)
+
+PartDefinitions(
+    Id int PK,
+    Cost int,
+    Name text
+)
+
+Stations(
+    Id int PK,
+    Name text,
+    Position int,
+    RoundId int FK(Round)
+)
+
+AssemblyStep(
+    Id int PK,
+    Name text,
+    Cost int
+)
+
+StationsAssemblies(
+    AssemblyStepId int FK(AssemblyStep),
+    StationId int FK(Stations)
+)
+
+Round(
+    Id int PK,
+    Start timestamp,
+    End timestamp  Nullable,
+)

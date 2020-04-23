@@ -1,0 +1,1 @@
+dotnet ef dbcontext scaffold "DataSource=Data/lean-training.db;foreign keys=true;" Microsoft.EntityFrameworkCore.Sqlite --context-dir Context --context AppDbContext --output-dir Models --force

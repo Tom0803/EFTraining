@@ -1,0 +1,60 @@
+DROP TABLE "Round";
+DROP TABLE "Station";
+DROP TABLE "AssemblyStep";
+DROP TABLE "PartDefinition";
+DROP TABLE "Product";
+DROP TABLE "Part";
+
+DROP TABLE "StationAssemblyStep";
+
+CREATE TABLE IF NOT EXISTS "Round" (
+	"Id"	INTEGER,
+	"Start"	TEXT NOT NULL,
+	"End"	TEXT,
+	PRIMARY KEY("Id")
+);
+
+CREATE TABLE IF NOT EXISTS "Station" (
+	"Id"	INTEGER,
+	"Position"	TEXT NOT NULL,
+	"RoundId"	INTEGER NOT NULL,
+	PRIMARY KEY("Id"),
+	FOREIGN KEY("RoundId") REFERENCES "Round"("Id")
+);
+
+CREATE TABLE IF NOT EXISTS "Product" (
+	"Id"	INTEGER,
+	"Start"	TEXT NOT NULL,
+	"End"	TEXT,
+	"RoundId"	INTEGER,
+	PRIMARY KEY("Id"),
+	FOREIGN KEY("RoundId") REFERENCES "Round"("Id")
+);
+
+CREATE TABLE IF NOT EXISTS "PartDefinition" (
+	"Id"	INTEGER,
+	"Cost"	INTEGER NOT NULL,
+	"Name"	TEXT NOT NULL,
+	PRIMARY KEY("Id")
+);
+
+CREATE TABLE IF NOT EXISTS "AssemblyStep" (
+	"Id"	INTEGER,
+	"Cost"	INTEGER NOT NULL,
+	"Name"	TEXT NOT NULL,
+	PRIMARY KEY("Id")
+);
+
+CREATE TABLE IF NOT EXISTS "StationAssemblyStep" (
+	"StationId"	INTEGER NOT NULL,
+	"AssemblyStepId"	INTEGER NOT NULL,
+	FOREIGN KEY("AssemblyStepId") REFERENCES "AssemblyStep"("Id"),
+	FOREIGN KEY("StationId") REFERENCES "Station"("Id")
+);
+
+CREATE TABLE IF NOT EXISTS "Part" (
+	"ProductId"	INTEGER NOT NULL,
+	"PartDefintionId"	INTEGER NOT NULL,
+	FOREIGN KEY("ProductId") REFERENCES "Product"("Id"),
+	FOREIGN KEY("PartDefintionId") REFERENCES "PartDefinition"("Id")
+);

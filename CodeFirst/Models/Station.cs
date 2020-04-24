@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CodeFirst.Models
 {
@@ -10,5 +11,22 @@ namespace CodeFirst.Models
         public Round Round { get; set; }
 
         public List<StationAssemblyStep> StationAssemblySteps { get; set; }
+    }
+
+    public static class StationExtensions
+    {
+        public static int PositionAsInt(this Station station)
+        {
+            char last = station.Position.Last();
+
+            if (int.TryParse(last.ToString(), out int result))
+            {
+                return result;
+            }
+            else
+            {
+                return -1;
+            }
+        }
     }
 }

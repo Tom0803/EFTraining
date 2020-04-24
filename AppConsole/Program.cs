@@ -11,15 +11,17 @@ namespace AppConsole
         {
             _map.Add("seed", new SeedUseCase());
             _map.Add("query", new QueryBasicUseCase());
+            _map.Add("seed-links", new InsertLinksUseCase());
         }
 
         static void Main(string[] args)
         {
+            System.Console.WriteLine("--------------------------------------------");
             var key = string.Empty;
 
             if (args != null && args.Count() > 0)
                 key = args.Last();
-                
+
             try
             {
                 if (_map.TryGetValue(key, out UseCase useCase))
@@ -39,6 +41,7 @@ namespace AppConsole
             }
 
             System.Console.WriteLine($"Ran with key {key}");
+            System.Console.WriteLine("--------------------------------------------");
         }
         private static Dictionary<string, UseCase> _map = new Dictionary<string, UseCase>();
     }

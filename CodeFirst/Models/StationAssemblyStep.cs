@@ -5,10 +5,8 @@ namespace CodeFirst.Models
 {
     public partial class StationAssemblyStep : Entity
     {
-        public virtual AssemblyStep AssemblyStep { get; set; }
+        public AssemblyStep AssemblyStep { get; set; }
 
-        public virtual Station Station { get; set; }
-
-                
+        public Station Station { get; set; }                
     }
 }

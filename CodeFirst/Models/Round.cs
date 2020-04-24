@@ -10,5 +10,7 @@ namespace CodeFirst.Models
 
         public List<Product> Products { get; set; }
         public List<Station> Stations { get; set; }
+
+        public override string ToString() => $"Start - [{Start}] - Stations [{Stations?.Count}] - Products [{Products?.Count}]]";
     }
 }

@@ -5,13 +5,13 @@
    "version": "0.2.0",
    "configurations": [
         {
-            "name": ".NET Core Launch (AppConsole)",
+            "name": ".Debug AppConsole",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/AppConsole/bin/Debug/netcoreapp3.1/AppConsole.dll",
-            "args": ["seed"],
+            "args": ["seed-links"],
             "cwd": "${workspaceFolder}",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",

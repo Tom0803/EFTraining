@@ -1,0 +1,4 @@
+dotnet ef migrations add AddedStationMandatoryBool -p CodeFirst\CodeFirst.csproj -s AppConsole\AppConsole.csproj
+
+dotnet ef database update
+

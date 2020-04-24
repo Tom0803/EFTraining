@@ -52,6 +52,8 @@ namespace CodeFirst.Context
                 .IsRequired();
             station.HasOne(x => x.Round)
                 .WithMany(x => x.Stations);
+            station.Property(x => x.Mandatory)
+                .HasDefaultValue(false);
             //
             // Product
             //

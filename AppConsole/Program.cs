@@ -12,6 +12,7 @@ namespace AppConsole
             _map.Add("seed", new SeedUseCase());
             _map.Add("query", new QueryBasicUseCase());
             _map.Add("seed-links", new InsertLinksUseCase());
+            _map.Add("read-stations", new ReadStationsUseCase());
         }
 
         static void Main(string[] args)

@@ -8,6 +8,8 @@ namespace CodeFirst.Models
 
         public string Name { get; set; }
 
+        public bool Mandatory { get; set; }
+
         public List<StationAssemblyStep> StationAssemblySteps { get; set; }
     }
 }

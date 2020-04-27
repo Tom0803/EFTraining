@@ -10,11 +10,9 @@ namespace CodeFirst.Models
 
         public Round Round { get; set; }
 
-        public bool Mandatory { get; set; }
-
         public List<StationAssemblyStep> StationAssemblySteps { get; set; }
 
-        public override string ToString() => $"Station:Id [{Id}] - Position [{Position}] - Mandatory [{Mandatory}]";
+        public override string ToString() => $"Station:Id [{Id}] - Position [{Position}]";
     }
 
     public static class StationExtensions

@@ -52,8 +52,6 @@ namespace CodeFirst.Context
                 .IsRequired();
             station.HasOne(x => x.Round)
                 .WithMany(x => x.Stations);
-            station.Property(x => x.Mandatory)
-                .HasDefaultValue(false);
             //
             // Product
             //
@@ -82,6 +80,8 @@ namespace CodeFirst.Context
             assemblyStep.Property(x => x.Name)
                 .IsRequired()
                 .HasMaxLength(50);
+            assemblyStep.Property(x => x.Mandatory)
+                .HasDefaultValue(false);                
             //
             // StationAssemblyStep
             //

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using CodeFirst.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
 
 namespace CodeFirst.Context
 {
@@ -62,6 +63,9 @@ namespace CodeFirst.Context
             product.Property(x => x.End);
             product.HasOne(x => x.Round)
                 .WithMany(x => x.Products);
+            product.HasOne(x => x.Station)
+                .WithMany(x => x.Products);
+                // .HasForeignKey(x => x.StationId);
             //
             // PartDefinition
             //
@@ -81,7 +85,7 @@ namespace CodeFirst.Context
                 .IsRequired()
                 .HasMaxLength(50);
             assemblyStep.Property(x => x.Mandatory)
-                .HasDefaultValue(false);                
+                .HasDefaultValue(false);
             //
             // StationAssemblyStep
             //
@@ -106,6 +110,10 @@ namespace CodeFirst.Context
             var entity = modelBuilder.Entity<T>();
             entity.HasKey(x => x.Id);
             entity.ToTable(typeof(T).Name);
+
+            entity.Property<DateTime>("CreatedAt");
+            entity.Property<DateTime>("UpdatedAt");
+            entity.Property<string>("LatestUser");
 
             return entity;
         }

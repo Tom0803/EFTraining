@@ -12,6 +12,8 @@ namespace CodeFirst.Models
 
         public List<StationAssemblyStep> StationAssemblySteps { get; set; }
 
+        public List<Product> Products { get; set; }
+
         public override string ToString() => $"Station:Id [{Id}] - Position [{Position}]";
     }
 

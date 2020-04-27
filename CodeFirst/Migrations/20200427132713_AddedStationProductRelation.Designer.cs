@@ -3,14 +3,16 @@ using System;
 using CodeFirst.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CodeFirst.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200427132713_AddedStationProductRelation")]
+    partial class AddedStationProductRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,12 +27,6 @@ namespace CodeFirst.Migrations
                     b.Property<long>("Cost")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("LatestUser")
-                        .HasColumnType("TEXT");
-
                     b.Property<bool>("Mandatory")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER")
@@ -40,9 +36,6 @@ namespace CodeFirst.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasMaxLength(50);
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -55,20 +48,11 @@ namespace CodeFirst.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("LatestUser")
-                        .HasColumnType("TEXT");
-
                     b.Property<int?>("PartDefintionId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("ProductId")
                         .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -88,19 +72,10 @@ namespace CodeFirst.Migrations
                     b.Property<int>("Cost")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("LatestUser")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasMaxLength(50);
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -113,13 +88,7 @@ namespace CodeFirst.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("TEXT");
-
                     b.Property<DateTime?>("End")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("LatestUser")
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("RoundId")
@@ -130,9 +99,6 @@ namespace CodeFirst.Migrations
 
                     b.Property<int>("StationId")
                         .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -149,19 +115,10 @@ namespace CodeFirst.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("TEXT");
-
                     b.Property<DateTime?>("End")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("LatestUser")
-                        .HasColumnType("TEXT");
-
                     b.Property<DateTime>("Start")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -175,21 +132,12 @@ namespace CodeFirst.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("LatestUser")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Position")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("RoundId")
                         .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -207,17 +155,8 @@ namespace CodeFirst.Migrations
                     b.Property<int?>("AssemblyStepId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("LatestUser")
-                        .HasColumnType("TEXT");
-
                     b.Property<int?>("StationId")
                         .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
